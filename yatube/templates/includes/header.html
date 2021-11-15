@@ -1,0 +1,57 @@
+{% load static %}
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'posts:index' %}">
+        <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span style="color:red">Ya</span>tube
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      {# Добавлено в спринте #}
+
+      {% comment %}
+      Меню - список пунктов со стандартными классами Bootsrap.
+      Класс nav-pills нужен для выделения активных пунктов 
+      {% endcomment %}
+      {% with request.resolver_match.view_name as view_name %}
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav justify-content-end">
+          <li class="nav-item"> 
+            <a class="nav-link {% if view_name  == 'about:author' %}active{% endif %}" href="{% url 'about:author' %}">Об авторе</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if view_name  == 'about:tech' %}active{% endif %}" href="{% url 'about:tech' %}">Технологии</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item"> 
+            <a class="nav-link {% if view_name  == 'posts:follow_index' %}active{% endif %}" href="{% url 'posts:follow_index' %}">Избранные авторы</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link {% if view_name  == 'posts:post_create' %}active{% endif %}" href="{% url 'posts:post_create' %}">Новая запись</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link link-light {% if view_name  == 'users:password_change' %}active{% endif %}" href="{% url 'users:password_change' %}">Изменить пароль</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link link-light {% if view_name  == 'users:logout' %}active{% endif %}" href="{% url 'users:logout' %}">Выйти</a>
+          </li>
+          <li>
+            <font color="#ffffff">Пользователь: {{ user.username }}</font>
+          <li>
+          {% else %}
+          <li class="nav-item"> 
+            <a class="nav-link link-light {% if view_name  == 'users:login' %}active{% endif %}" href="{% url 'users:login' %}">Войти</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link link-light {% if view_name  == 'users:signup' %}active{% endif %}" href="{% url 'users:signup' %}">Регистрация</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+      {% endwith %}
+      {# Конец добавленого в спринте #}
+    </div>
+  </nav>      
+</header>

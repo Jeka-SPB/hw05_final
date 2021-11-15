@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Об авторе проекта {% endblock %}
+{% block content %}
+
+
+<div class="container">
+  <div class="row p-3">
+    <div class="col">
+      <h1>Привет, над этим ещё надо поработать</h1>
+    </div>
+  </div>
+  <div class="row gy-5">
+    <div class="col">
+    <figure class="figure">
+      <img src="{% static 'img/qwe.png' %}" class="img-thumbnail" width="500" height="500" alt="">
+      <figcaption class="figure-caption">Просто фотка</figcaption>
+    </figure>
+    </div>
+    <div class="col align-self-center">
+      <p> Свой первый <span class="badge bg-secondary">'Hello, world!'</span></h1> я написал в июле 2021.</p>
+      <p> Постараюсь дописать эту страницу на каникулах </p>
+    </div>
+    <div class="col align-self-center">
+      <div>
+        <span class="social github">
+          <a href="https://github.com/Jeka-SPB" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+        </span>
+        <span class="social instagram">
+          <a href="https://www.instagram.com/_jekee_/" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+{% endblock %} 
