@@ -14,7 +14,7 @@ User = get_user_model()
 def index(request):
     title = 'Главная страница'
     template = 'posts/index.html'
-    post_list = Post.objects.all()
+    post_list = Post.objects.select_related('group').all()
     paginator = Paginator(post_list, COUNT_LISTS)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -50,7 +50,8 @@ def profile(request, username):
     page_obj = paginator.get_page(page_number)
     following = False
     if request.user.is_authenticated:
-        following = Follow.objects.filter(author=author, user=request.user)
+        following = Follow.objects.filter(
+            author=author, user=request.user).exists()
     context = {
         'author': author,
         'post_count': post_count,
@@ -151,6 +152,5 @@ def profile_unfollow(request, username):
         author__username=username,
         user=request.user
     )
-    if Follow.objects.filter(pk=unfollow_profile.pk):
-        unfollow_profile.delete()
+    Follow.objects.filter(pk=unfollow_profile.pk).delete()
     return redirect('posts:profile', username=username)
