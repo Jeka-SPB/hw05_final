@@ -25,12 +25,18 @@ SECRET_KEY = '6s-1^zj#av!(oug_v7my^t-upk_@n&b-_w6+v&=mkwrelw830u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# Если debug false
+# Если debug false, до запуска на сервер
+# ALLOWED_HOSTS = [
+#     'localhost',
+#     '127.0.0.1',
+#     '[::1]',
+#     'testserver',
+# ]
+
+#После запуска на сервер
 ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    '[::1]',
-    'testserver',
+    'www.jekaspb.pythonanywhere.com',
+    'jekaspb.pythonanywhere.com',
 ]
 
 
