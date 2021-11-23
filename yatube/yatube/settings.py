@@ -25,6 +25,7 @@ SECRET_KEY = '6s-1^zj#av!(oug_v7my^t-upk_@n&b-_w6+v&=mkwrelw830u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Если debug false
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'about.apps.AboutConfig',
     'sorl.thumbnail',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'yatube.urls'
@@ -158,3 +161,8 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
+
+# Настройка DjDT
+INTERNAL_IPS = [
+    '127.0.0.1',
+] 
