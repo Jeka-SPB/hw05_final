@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6s-1^zj#av!(oug_v7my^t-upk_@n&b-_w6+v&=mkwrelw830u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # Если debug false, до запуска на сервер
 # ALLOWED_HOSTS = [
@@ -34,10 +34,10 @@ DEBUG = False
 # ]
 
 #После запуска на сервер
-ALLOWED_HOSTS = [
-    'www.jekaspb.pythonanywhere.com',
-    'jekaspb.pythonanywhere.com',
-]
+# ALLOWED_HOSTS = [
+#     'www.jekaspb.pythonanywhere.com',
+#     'jekaspb.pythonanywhere.com',
+# ]
 
 
 # Application definition
