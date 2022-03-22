@@ -16,3 +16,22 @@
 - Автор может выбрать для своей страницы имя и уникальный адрес
 - Записи можно отправить в сообщество и посмотреть там записи разных авторов
 
+### Запуск:
+
+Установка зависимостей:.
+```
+pip install -r requirements.txt
+```
+Применение миграций:
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+Создание администратора:
+```
+python manage.py createsuperuser
+```
+Запуск приложения:
+```
+python manage.py runserver
+```
